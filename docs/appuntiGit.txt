@@ -6,9 +6,10 @@ VARIO
 $ git status (ottengo lo stato di archiviazione del repo locale/remoto)
 $ git log (ottengo il log esteso di tutti i commit fatti)
 $ git log --oneline (ottengo il log semplificato di tutti i commit fatti)
+$ git branch -avvv (ottengo lo stato di tutti i remote e di tutti i rami)
 
 BRANCH
-
+$ git switch [nome ramo] (cambia il ramo sul repo)
 
 REMOTE
 Aggiungere un remote
