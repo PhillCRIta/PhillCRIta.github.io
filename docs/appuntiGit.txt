@@ -1,0 +1,9 @@
+
+
+
+
+REMOTE
+Aggiungere un remote
+$ git remote add [nome] [url] (di default il nome dato è origin)
+Elenco di tutti i remote configurati
+$ git remote -v 
