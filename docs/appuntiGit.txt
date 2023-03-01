@@ -1,5 +1,6 @@
 
 
+BRANCH
 
 
 REMOTE
@@ -7,3 +8,9 @@ Aggiungere un remote
 $ git remote add [nome] [url] (di default il nome dato è origin)
 Elenco di tutti i remote configurati
 $ git remote -v 
+$ git remote rename [vecchio nome] [nuovo nome]
+$ git remote remove [nome]
+
+PUSH SU SERVER REMOTO GitHub o altro server
+Quando si fa il push si carica il ramo in cui si sta lavorando su un server remoto Git.
+$ git push [nome remoto] [ramo da caricare]
