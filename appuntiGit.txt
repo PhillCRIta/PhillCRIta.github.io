@@ -9,7 +9,18 @@ $ git log --oneline (ottengo il log semplificato di tutti i commit fatti)
 $ git branch -avvv (ottengo lo stato di tutti i remote e di tutti i rami)
 
 BRANCH
+$ git branch [nome ramo] (crea un nuovo ramo, senza spostare l'Head)
+$ git checkout -b [nome ramo] (crea un nuovo ramo e sposta l'Head)
+OPPURE $ git switch -c [nome ramo] (crea un nuovo ramo e sposta l'Head)
+$ git branch (ottengo l'elenco dei rami del repo locale)
+$ git remote show [remote] (mostra tutti i rami presenti sul remote)
 $ git switch [nome ramo] (cambia il ramo sul repo)
+$ git branch -r (mostra i rami remoti abbinati al repo locale)
+$ git branch -m [nuovo nome] (rinomina il ramo, devo esserci dentro)
+$ git branch -d [nome ramo] (elimina il ramo)
+
+$ git pull [nome remote] (scarico il ramo remoto, devo essere dentro al ramo locale per scaricare il remoto)
+
 
 REMOTE
 Aggiungere un remote
@@ -18,6 +29,7 @@ Elenco di tutti i remote configurati
 $ git remote -v 
 $ git remote rename [vecchio nome] [nuovo nome]
 $ git remote remove [nome]
+
 
 PUSH SU SERVER REMOTO GitHub o altro server
 Quando si fa il push si carica il ramo in cui si sta lavorando su un server remoto Git.
