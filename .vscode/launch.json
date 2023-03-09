@@ -5,10 +5,20 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "chrome",
+            "name": ".NET Core Launch (console)",
+            "type": "coreclr",
             "request": "launch",
-            "name": "Open index.html",
-            "file": "/Users/FIlippo/Desktop/RepositoryOnMac/PhillCRIta.github.io/docs/index.html"
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/bin/Debug/net7.0/PhillCRIta.github.io.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach"
         }
     ]
 }
