@@ -1,2 +1,0 @@
-# PhillCRIta.github.io
-MyPersonalSite
