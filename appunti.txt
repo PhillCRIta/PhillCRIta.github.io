@@ -1,3 +1,0 @@
-PrismJS
-HighlightJS
-Rainbow
