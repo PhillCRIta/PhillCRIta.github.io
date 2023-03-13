@@ -47,7 +47,7 @@
                                     .NET World
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="dnetdesignp.html">Deisgn pattern</a></li>
+                                    <li><a class="dropdown-item" href="dnetdesignp.html">Design pattern</a></li>
                                     <li><a class="dropdown-item" href="dnetdelegate.html">Delegate e Lambda</a></li>
                                     <li><a class="dropdown-item" href="dnetexpressionbodied.html">Expression Bodied</a>
                                     </li>
@@ -62,61 +62,83 @@
                 </div>
             </nav>
         </div>
-        <div class="row">
-            <div class="col-lg" style=" padding: 0;">
-                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel"
-                    data-bs-interval="4000">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
-                            class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                            aria-label="Slide 3"></button>
-                    </div>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="img/img1HD.jpg" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Cremona</h5>
-                                <p>Città del Violino</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img/img3HD.jpg" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>San Giminiano</h5>
-                                <p>Piazza del Triangolo</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img/img2HD.jpg" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Puglia</h5>
-                                <p>Angolo di Paradiso</p>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-            </div>
-        </div>
     </div>
     <div class="container  mt-3 mb-3    bg-light pt-3 pb-3 ">
         <h1>Appunti Git</h1>
-        
-        culpa duis.
+        <h4>VARIO</h4>
+        $ git status (ottengo lo stato di archiviazione del repo locale/remoto)<br />
+        $ git log (ottengo il log esteso di tutti i commit fatti)<br />
+        $ git log --oneline (ottengo il log semplificato di tutti i commit fatti)<br />
+        $ git branch -avvv (ottengo lo stato di tutti i remote e di tutti i rami)<br />
+        <br />
+        <h4>INIZIALIZZAZIONE NUOVO REPO</h4>
+        $ git init (nella cartella in cui mi trovo si crea il repo)<br />
+        $ git --bare init [nome cartella] (crea un repo vuoto su un server remoto, pronto a ospitare i push da git
+        locale)<br />
+        <br />
+
+        <h4>BRANCH</h4>
+        <i><u>Creazione di un ramo</u></i><br />
+        $ git branch [nome ramo] (crea un nuovo ramo)<br />
+        $ git branch -v (ottiene informazioni aggiuntive sui branch)<br />
+        $ git switch -c [nome ramo] (crea il ramo e si posiziona su quel ramo) <br />
+        oppure $ git checkout -B [nome ramo] (crea il ramo e si posiziona su quel ramo)
+        <br /><br />
+        <i><u>Cambio di un ramo su cui sto lavorando</u></i><br />
+        $ git switch [nome ramo] (cambia il ramo sul repo)<br />
+        oppure $ git checkout [nome ramo]
+        <br /> <br />
+        <i><u>Rinomina di un ramo</u></i><br />
+        $ git branch -M [vecchio nome] [nuovo nome]<br />
+        <br />
+        <i><u>Eliminazione di un ramo</u> </i><br />
+        $ git branch -D [nome ramo] (cancella il ramo, per lanciare il comando devi essere fuori dal ramo)<br />
+        <br />
+        <i><u>Creazione di un ramo vuoto</u></i><br />
+        $ git checkout --orphan [nome ramo]
+        $ git rm -rf .
+        <br /><br />
+        <i><u>Ramo remoto e ramo locale </u></i><br />
+        $ git branch -r (mostra il ramo remoto sul repo locale in cui siamo)<br />
+        $ git branch -r (lista rami remoti)<br />
+        $ git push origin -d [nome ramo remoto] (cancella ramo remoto) <br />
+        $ git switch [nome ramo](collega un ramo remoto a uno locale, devi essere sul ramo che vuoi collegare) <br />
+        $ git checkout --track [remote]/[nome ramo]  <br />
+        <br />
+        <h4>REMOTE</h4>
+        <i><u>Aggiungere un remote</u></i><br />
+        $ git remote add [nome] [url] (di default il nome dato è origin)<br /><br />
+        <i><u>Elenco di tutti i remote configurati</u></i><br />
+        $ git remote -v<br />
+        $ git remote rename [vecchio nome] [nuovo nome]<br />
+        $ git remote remove [nome]<br />
+        <br /> 
+        <h4>PUSH SU SERVER REMOTO GitHub o altro server</h4>
+        Quando si fa il push si carica il ramo in cui si sta lavorando su un server remoto Git.<br />
+        $ git push [nome remoto] [ramo da caricare]<br />
+        <br />
+        <h4>PULL E FETCH + MERGE</h4>
+        Git merge fa l’unione di due rami, unisce i rami non i commit specifici, 
+        unisce sempre dalla head corrente (unione da dove c’è la testa del ramo). <br />
+        Si esegue il merge dal ramo su cui voglio unire, per esempio unire branch1 a master, vado su master e lancio 
+        git merge branch1 (unione avanti veloce); porta l’ultimo e i precedenti commit sul ramo master. <br />
+        Git merge tiene sempre i rami distinti.
+        <br /><br />
+        AHEAD AVANTI<br />
+        BEHIND INDIETRO<br />
+        DEATACH HEAD funziona sia in indietro(torno al commit precedente), che in avanti (vado avanti sul commit remoto).<br />
+        <br />
+        $ git fetch (scarica il contnuto del remoto in una posizione temporanea, è più sicuro, non intacca la cartella di lavoro) <br />
+        $ git fetch —all (scarico tutti i rami remoti, che rimangono remoti in attesa di merge)
+        $ git fetch [nome remoto] (scarica tutto nel repository remoto, non nella directory di lavoro) <br />
+        $ git fetch [nome remoto] [nome branch] (scarica un solo ramo)<br />
+        (se tento di fare un merge con un ramo remoto e i file sono differenti, git restituisce un conflitto)<br />
+        $ git pull (è l’insieme di git fetch e git merge, git pull prende un ramo alla volta per riportare le modifiche, bisogna trovarsi sul ramo da cui si vuole tirare giù le modifiche) <br /> <br />
+        <i>Ogni volta che faccio una modifica su un branch remoto, o sono a conoscenza di eventuali modifiche, meglio fare SEMPRE IL FETCH dal remoto per ottenere le  ultime modifiche, poi posso decidere di unirle (merge).
+        Ricordo che ogni modifica scaricata con FETCH è sempre tenuta in un’area protetta, non intacca la directory di lavoro.
+        </i>
     </div>
-   
+
     <!-- Copyright -->
     <div class="text-center p-4 mt-3" style="background-color: rgba(0, 0, 0, 0.05);">
         © 2023 Copyright: Phill CR-Ita RePo
