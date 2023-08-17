@@ -28,3 +28,25 @@ $ git remote remove [nome]\
 PUSH SU SERVER REMOTO GitHub o altro server\
 Quando si fa il push si carica il ramo in cui si sta lavorando su un server remoto Git.\
 $ git push [nome remoto] [ramo da caricare]\
+
+
+
+PULIZIA COMPLETA RAMO\
+
+Checkout\
+git checkout --orphan latest_branch\
+
+Add all the files\
+git add -A\
+
+Commit the changes\
+git commit -am "commit message"\
+
+Delete the branch\
+git branch -D main\
+
+Rename the current branch to main\
+git branch -m main\
+
+Finally, force update your repository\
+git push -f origin main\
