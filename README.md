@@ -31,22 +31,22 @@ $ git push [nome remoto] [ramo da caricare]\
 
 
 
-PULIZIA COMPLETA RAMO\
+PULIZIA COMPLETA RAMO
 
 Checkout\
-git checkout --orphan latest_branch\
+git checkout --orphan latest_branch
 
 Add all the files\
-git add -A\
+git add -A
 
 Commit the changes\
-git commit -am "commit message"\
+git commit -am "commit message"
 
 Delete the branch\
-git branch -D main\
+git branch -D main
 
 Rename the current branch to main\
-git branch -m main\
+git branch -m main
 
 Finally, force update your repository\
-git push -f origin main\
+git push -f origin main
