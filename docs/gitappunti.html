@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhillCR Ita Repo Web Site</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body style="background-color:darkgrey;">
+    <div class="container text-center">
+        <div class="row">
+            <nav class="navbar navbar-expand-lg  "
+                style="margin-bottom: 10px; margin-top: 10px; background-color:gainsboro ">
+                <div class="container-fluid">
+                    <img src="img/pmlogo.png" alt="Logo" width="50" class="d-inline-block align-text-top"
+                        style="margin-right: 15px;">
+                    <a class="navbar-brand" href="index.html">Phill*RePo</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link " aria-current="page" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="bio.html">Bio</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle active" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Git
+                                </a>
+                                <ul class="dropdown-menu  ">
+                                    <li><a class="dropdown-item active" href="gitappunti.html">Appunti Git</a></li>
+                                    <li><a class="dropdown-item" href="gitmultirepo.html">Multi-Remote</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    .NET World
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="dnetdesignp.html">Design pattern</a></li>
+                                    <li><a class="dropdown-item" href="dnetdelegate.html">Delegate e Lambda</a></li>
+                                    <li><a class="dropdown-item" href="dnetexpressionbodied.html">Expression Bodied</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="dnetappunti.html">Appunti vari</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="mcookies.html">Margy's Cookies V2</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="container  mt-3 mb-3    bg-light pt-3 pb-3 ">
+        <h1>Appunti Git</h1>
+        <h4>VARIO</h4>
+        $ git status (ottengo lo stato di archiviazione del repo locale/remoto)<br />
+        $ git log (ottengo il log esteso di tutti i commit fatti)<br />
+        $ git log --oneline (ottengo il log semplificato di tutti i commit fatti)<br />
+        $ git branch -avvv (ottengo lo stato di tutti i remote e di tutti i rami)<br />
+        <br />
+        <h4>INIZIALIZZAZIONE NUOVO REPO</h4>
+        $ git init (nella cartella in cui mi trovo si crea il repo)<br />
+        $ git --bare init [nome cartella] (crea un repo vuoto su un server remoto, pronto a ospitare i push da git
+        locale)<br />
+        <br />
+
+        <h4>BRANCH</h4>
+        <i><u>Creazione di un ramo</u></i><br />
+        $ git branch [nome ramo] (crea un nuovo ramo)<br />
+        $ git branch -v (ottiene informazioni aggiuntive sui branch)<br />
+        $ git switch -c [nome ramo] (crea il ramo e si posiziona su quel ramo) <br />
+        oppure $ git checkout -B [nome ramo] (crea il ramo e si posiziona su quel ramo)
+        <br /><br />
+        <i><u>Cambio di un ramo su cui sto lavorando</u></i><br />
+        $ git switch [nome ramo] (cambia il ramo sul repo)<br />
+        oppure $ git checkout [nome ramo]
+        <br /> <br />
+        <i><u>Rinomina di un ramo</u></i><br />
+        $ git branch -M [vecchio nome] [nuovo nome]<br />
+        <br />
+        <i><u>Eliminazione di un ramo</u> </i><br />
+        $ git branch -D [nome ramo] (cancella il ramo, per lanciare il comando devi essere fuori dal ramo)<br />
+        <br />
+        <i><u>Creazione di un ramo vuoto</u></i><br />
+        $ git checkout --orphan [nome ramo]
+        $ git rm -rf .
+        <br /><br />
+        <i><u>Ramo remoto e ramo locale </u></i><br />
+        $ git branch -r (mostra il ramo remoto sul repo locale in cui siamo)<br />
+        $ git branch -r (lista rami remoti)<br />
+        $ git push origin -d [nome ramo remoto] (cancella ramo remoto) <br />
+        $ git switch [nome ramo](collega un ramo remoto a uno locale, devi essere sul ramo che vuoi collegare) <br />
+        $ git checkout --track [remote]/[nome ramo]  <br />
+        <br />
+        
+        <i><u>Procedura manuale sincronizzazione</u></i><br />
+        <u>///verifica lo stato della sincronizzazione fra repo locale e remoto <br /></u>
+        $ git remote show [nome remoto] <br />
+        <u>///collegare il ramo remoto sul repo locale, la prima volta <br /></u>
+        $ git fetch [nome remoto] [nome ramo]<br />
+        $ git checkout --track [nome remoto]/[nome ramo]<br />
+        <u>///una volta i due rami sono collegati, per aggiornare il ramo sul repo locale <br /></u>
+        $ git fetch [nome remoto] [nome ramo]<br />
+        $ git merge [nome remoto]/[nome ramo]<br />
+        <u>///caricamento di un nuovo branch sul repo remoto</u><br />
+        $ git push [nome remoto] [nome ramo locale]:[nome ramo remoto]<br />
+
+        <br /> 
+        <h4>REMOTE</h4>
+        <i><u>Aggiungere un remote</u></i><br />
+        $ git remote add [nome] [url] (di default il nome dato è origin)<br /><br />
+        <i><u>Elenco di tutti i remote configurati</u></i><br />
+        $ git remote -v<br />
+        $ git remote rename [vecchio nome] [nuovo nome]<br />
+        $ git remote remove [nome]<br />
+        <br />  
+        <h4>PUSH SU SERVER REMOTO GitHub o altro server</h4>
+        Quando si fa il push si carica il ramo in cui si sta lavorando su un server remoto Git.<br />
+        $ git push [nome remoto] [ramo da caricare]<br />
+        <br />
+        <h4>PULL E FETCH + MERGE</h4>
+        Git merge fa l’unione di due rami, unisce i rami non i commit specifici, 
+        unisce sempre dalla head corrente (unione da dove c’è la testa del ramo). <br />
+        Si esegue il merge dal ramo su cui voglio unire, per esempio unire branch1 a master, vado su master e lancio 
+        git merge branch1 (unione avanti veloce); porta l’ultimo e i precedenti commit sul ramo master. <br />
+        Git merge tiene sempre i rami distinti.
+        <br /><br />
+        AHEAD AVANTI<br />
+        BEHIND INDIETRO<br />
+        DEATACH HEAD funziona sia in indietro (torno al commit precedente), che in avanti (vado avanti sul commit remoto).<br />
+        <br />
+        $ git fetch (scarica il contnuto del remoto in una posizione temporanea, è più sicuro, non intacca la cartella di lavoro) <br />
+        $ git fetch —all (scarico tutti i rami remoti, che rimangono remoti in attesa di merge)
+        $ git fetch [nome remoto] (scarica tutto nel repository remoto, non nella directory di lavoro) <br />
+        $ git fetch [nome remoto] [nome branch] (scarica un solo ramo)<br />
+        (se tento di fare un merge con un ramo remoto e i file sono differenti, git restituisce un conflitto)<br />
+        $ git pull (è l’insieme di git fetch e git merge, git pull prende un ramo alla volta per riportare le modifiche, bisogna trovarsi sul ramo da cui si vuole tirare giù le modifiche) <br /> <br />
+        <i>Ogni volta che faccio una modifica su un branch remoto, o sono a conoscenza di eventuali modifiche, meglio fare SEMPRE IL FETCH dal remoto per ottenere le  ultime modifiche, poi posso decidere di unirle (merge).
+        Ricordo che ogni modifica scaricata con FETCH è sempre tenuta in un’area protetta, non intacca la directory di lavoro.
+        </i>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center p-4 mt-3" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2023 Copyright: Phill CR-Ita RePo
+    </div>
+    <!-- Copyright -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhillCR Ita Repo Web Site</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/default.min.css">
+</head>
+
+<body style="background-color:darkgrey;">
+    <div class="container text-center">
+        <div class="row">
+            <nav class="navbar navbar-expand-lg  "
+                style="margin-bottom: 10px; margin-top: 10px; background-color:gainsboro ">
+                <div class="container-fluid">
+                    <img src="img/pmlogo.png" alt="Logo" width="50" class="d-inline-block align-text-top"
+                        style="margin-right: 15px;">
+                    <a class="navbar-brand" href="index.html">Phill*RePo</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link " aria-current="page" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="bio.html">Bio</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Git
+                                </a>
+                                <ul class="dropdown-menu  ">
+                                    <li><a class="dropdown-item " href="gitappunti.html">Appunti Git</a></li>
+                                    <li><a class="dropdown-item " href="gitmultirepo.html">Multi-Remote</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle active" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    .NET World
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="dnetdesignp.html">Design pattern</a></li>
+                                    <li><a class="dropdown-item active" href="dnetdelegate.html">Delegate e Lambda</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="dnetexpressionbodied.html">Expression Bodied</a>
+                                    </li>
+                                    <li><a class="dropdown-item " href="dnetappunti.html">Appunti vari</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="mcookies.html">Margy's Cookies V2</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container  mt-3 mb-3    bg-light pt-3 pb-3 ">
+        <h1>DOTNet Funzioni Anonime, Lamba Expression, Delegati e Eventi C#</h1>
+        Il delegato è un tipo (come strut, class, interface) che contiene un riferimento a un metodo, permette di
+        passare un oggetto come se fosse un metodo, ad esempio un oggetto che fa da filtro, che “al suo interno” in
+        realtà è un metodo.<br />
+        <pre><code><i>Serve a trattare metodi come oggetti.</i>
+
+Public delegate bool ConfrontaValori (int x, int y);
+public bool maggioreDi(int x, int y)
+public bool minoreDi(int x, int y)
+<i>Il delegato è un TIPO, è una classe</i>
+ConfrontaValori cv = new ConfrontaValori (this.maggioreDi(x,y)) 
+Oppure 
+ConfrontaValori cv = this.maggioreDi(x,y)
+
+Per chiamarlo si può fare con 
+Cv(10,4)
+Oppure cd.Invoke(10,4)
+
+FILTRO LISTA
+public delegate bool FiltraPersone (Persona p); //definizione astratta
+StampaLista(List<Persona> lista, FiltraPersone filtro); //uso del delegato, firma della funzione
+
+MODO 1
+Bool bMinore(Persona p){ return true/false)
+StampaLista(lista, bMinore); // mi riferisco alla funzione che è uguale alla “firma” del delegato)
+
+MODO 2
+FiltraPersone filtro = delegate (Persona p){ return true / false } //QUESTO E’ UN METODO ANONIMO, sa cosa deve restituire e cosa si aspetta in ingresso perché è tipizzato come il delegato sopra definito FiltraPersone	
+StampaLista(lista, filtro) // chiamo direttamente il delegato che al suo interno ha la logica di funzionamento, che nel modo 1 era dentro un metodo
+
+MODO 3  LAMBDA EXPRESSION - ISTRUZIONE
+String valoreDelFiltro = “”;
+StampaLista(lista, p => { return true/false passando anche il parametro valoreDelFiltro}
+p è un riferimento al tipo passato dentro al delegato. Tutta la sintassi è un delegato implicito.
+
+MODO 4  LAMBDA EXPRESSION - ESPRESSIONE
+StampaLista(lista, p => p.Age = X) Metodo ancora più compatto per scrivere una funzione di filtro, dove p rappresenta il tipo Persona, e Age è una proprietà di Persona.
+
+La lambda expression è un modo per scrivere in modo più compatto metodi, tutto è espresso in termini di funzioni anonime.
+Funzioni lambda per creare espressioni  (input parameters) => {metodo}
+Espressioni per creare funzioni lambda (input parameter) => espressione
+DELEGATI GENERICI, usano tipi generici stabiliti nella definizione
+Public delegate void ConfrontaDelegate <T> (T x, T y) where T:struct
+Where è opzionale, limita l’uso del tipo T che posso usare
+ConfrontaDelegate<int> cd = p.MaggioreDi(int,int)
+ConfrontaDelegate<float> cd = p.MaggioreDi(float,float)
+
+I DELEGATE PREDEFINITI già pronti all’uso messi a disposizione da C#, posso passare fino a 16 parametri
+ACTION non restituisce alcun valore
+Public delegate void Action<T1, T2..T16>(T1 arg1, T2 arg2… T16 arg16)
+Public void myFunc(int x, string y){};
+Action<int, string) myAct = this.myFunc;
+myAct(10,”Ciao”);
+FUNC restituisce un valore
+Public delegate Tresult Func<Tresult>(); > solo un parametro in uscita
+Public delegate Tresult Func<T1, Tresult>(T1 arg1); >un parametro in uscita, uno in entrata
+Public delegate Tresult Func<T1,…, T16, Tresult>(T1 arg1, …., T16 arg16); >un parametro in uscita, uno in entrata fino a un massimo di 16 input, l’ultimo tipo ammesso è Tresult è quello di uscita.
+    
+DELEGATE MULTICAST E EVENTI
+Un delegato MULTICAST è un delegato che può memorizzare un riferimento a più di un metodo.
+Per la gestione degli eventi devo avere:
+UNA CLASSE EMETTITORE DELL’EVENTO
+UNA CLASSE LISTENER CHE ASCOLTA L’EVENTO
+--
+Creiamo un oggetto emettitore di eventi
+Creiamo oggetti listener
+Eseguiamo la sottoscrizione listener all’emettitore
+Facciamo scattare l’evento / Pubblichiamo l’evento
+Riceviamo l’evento
+Emettitore:
+private string message;
+public string Message{get{};set{OnNewMessage(msg);} //il setter chiama l’evento OnNewMessage in modo automatico, che a sua volta chiama il delegate NewMessage.
+public event Action<string> NewMessage;
+public void OnNewMessage(string msg){
+	if (NewMessage != null)
+		NewMessage(msg);
+}
+Ascoltatore:
+public void function MessageHandler { fai qualcosa}
+MAIN
+Emitter  e = new Emitter();
+Listener l1 = new Listener();
+e.NewMessage += l1.MessageHandler;
+sarebbe possibile fare e.NewMessage += THIS.qualcosa()???
+e.Message = “ciao” >> cambiando il valore della proprietà dispaccio l’evento e “FACCIO QUALCOSA” (MessageHandler)
+
+event è una forma più ristretta di un delegato che si comporta come una lista, possiamo aggiungere e togliere una sottoscrizione += / -=
+Si può anche fare myDelegte = myMethod, in questo modo si sostituiscono tutti i metodi assegnati in precedenza.
+Gli eventi possono essere invocati solo dalla classe interna che li definisce.
+</code>
+</pre>
+    </div>
+    <!-- Copyright -->
+    <div class="text-center p-4 mt-3" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2023 Copyright: Phill CR-Ita RePo
+    </div>
+    <!-- Copyright -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>
